@@ -10,6 +10,7 @@ import java.util.List;
 
 import Beans.Cataloguries;
 import Beans.ProductType;
+import Beans.Products;
 import Beans.ResultMessage;
 import Beans.UserAccount;
 import Beans.UserInfo;
@@ -146,4 +147,42 @@ public class DBUtils {
 		catch(Exception ex) {}
 		return null;
 	}
+	
+//	public static List<Products> ListProducts(Connection conn){
+//		List<Products> listItem = new ArrayList<>();
+//		try {
+//			String query = "Exec [dbo].[MasterFunction] 1,'<InputValue Sys_ViewID=\"1\"/><RequestParams Sys_ViewID=\"1\" Contex=\"AllProduct\"/>'";
+//			PreparedStatement statement = conn.prepareStatement(query);
+//			boolean results = statement.execute();
+//			int count = 0;
+//			ResultMessage message = null;
+//	        do {
+//	            if (results) {
+//	                ResultSet rs = statement.getResultSet();
+//	                while (rs.next()) {
+//	                	count ++;
+//	                	if(count == 1) {
+//	                		message = ConnectionUtils.getResultMessage(rs.getInt("ID"),rs.getString("Code"),rs.getString("Name"),rs.getString("Description"));
+//	                		
+//	                	}
+//	                	if(count >= 1 ) {	                		
+//	                		if(count >= 2 && message.getID() > 0) {
+//	                			Products model = new Products();
+//	                			model.setID(rs.getInt("ID"));
+//		                		model.setName(rs.getString("Name"));
+//		                		model.setCataloguryID(rs.getInt("CataloguriesID"));
+//		                		model.setImage(rs.getString("Image"));
+//		                		listItem.add(model);
+//	                		}
+//	                	}	                	
+//	                }
+//	            }
+//	            results = statement.getMoreResults(statement.CLOSE_CURRENT_RESULT);
+//	        } while (results);
+//	        statement.close();
+//	        return listItem;
+//		}
+//		catch(Exception ex) {}
+//		return null;
+//	}
 }
