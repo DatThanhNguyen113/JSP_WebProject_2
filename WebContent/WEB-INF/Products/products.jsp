@@ -1,8 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ page import="java.util.List" %>
-<%@ page import="Beans.ProductType" %>
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -27,7 +24,6 @@
 		<link type="text/css" rel="stylesheet" href="Style/style.css"/>
 </head>
 <body>
-		<!-- HEADER -->
 		<header>
 			<!-- TOP HEADER -->
 			
@@ -45,15 +41,12 @@
 		<jsp:include page="/WEB-INF/Home/Home-Navigation.jsp"></jsp:include>		
 		<!-- /NAVIGATION -->
 		
-		<c:forEach items="${listProductType}" var="item">
+		<c:forEach items="listProducts" var="item">
 			<div>
-				<c:url value="product" var="myUrl">
-					<c:param name="producttypeid" value="${item.id}"></c:param>
-				</c:url>
-				<a href="${myUrl}"><img alt="" src='<c:out value="${item.image}"></c:out>'></a>
-				<h3>Name: (${item.name})</h3>
+				<img src='<c:out value="${item.image }"></c:out>' />
+				<h3>Ten San Pham : (${item.productName}) </h3>
+				<h5>Gia : (${item.price})</h5>
 			</div>
 		</c:forEach>
-		
 </body>
 </html>
